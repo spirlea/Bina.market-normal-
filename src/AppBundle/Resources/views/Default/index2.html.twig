@@ -121,8 +121,8 @@
                             {% if data.items is defined %}
                         <h5 class="middle-header blue-text">Sortare Dupa Pret</h5>
                          <ul class="list-unstyled leftmenu">
-                            <li><a href="{{path('ascpret')}}">Crescator</a></li>
-                            <li><a href="{{path('descpret')}}">Descrescator</a></li>
+                            <li><a href="{{path('ascpret')}}">Crescator ↑</a></li>
+                            <li><a href="{{path('descpret')}}">Descrescator ↓</a></li>
                          </ul>
                             {%endif%}
                         
@@ -206,7 +206,7 @@
                         
                 <footer>
                     <a href="{{path('info',{i:infocom.C}) }}">more&hellip;</a>
-                    <p class="pull-right">Views {{ infocom.views }}</p>
+                    <p class="pull-right">Views: {{ infocom.views }}</p>
                 </footer>
            </div>
 {%endfor%}
@@ -252,7 +252,7 @@
                         
                 <footer>
                     <a href="{{path('info1',{i:infocom.id}) }}">more&hellip;</a>
-                    <p class="pull-right">Views {{ infocom.views }}</p>
+                    <p class="pull-right">Views: {{ infocom.views }}</p>
                 </footer>
             </div>
 {%endfor%}
@@ -296,7 +296,7 @@
                         
                 <footer>
                     <a href="{{path('infopage',{id:infocom.C}) }}">more&hellip;</a>
-                    <p class="pull-right">Views:{{ infocom.views }}</p>
+                    <p class="pull-right">Views: {{ infocom.views }}</p>
                 </footer>
             </div>
 {%endfor%}
@@ -338,7 +338,7 @@
                         
                 <footer>
                     <a href="{{path('info',{i:infocom.C}) }}">more&hellip;</a>
-                    <p class="pull-right">Views {{ infocom.views }}</p>
+                    <p class="pull-right">Views: {{ infocom.views }}</p>
                 </footer>
             </div>
 {%endfor%}

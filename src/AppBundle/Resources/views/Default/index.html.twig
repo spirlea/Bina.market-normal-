@@ -35,7 +35,7 @@
                 </ul>
                 <footer>
                     <a href="{{ path("show_client_article", {"articleId": article.id }) }}">more&hellip;</a>
-                    <p class="pull-right">Views {{ article.id in data.count|keys ? data.count[article.id] : 0 }}</p>
+                    <p class="pull-right">Views: {{ article.id in data.count|keys ? data.count[article.id] : 0 }}</p>
                 </footer>
             </div>
         </div>

@@ -36,7 +36,7 @@ class DefaultController extends Controller
         $connect = $this->get('database_connection');
         $popular['result'] = $connect->fetchAll('select * from companies order by `views` DESC limit 5');
         $popular['items'] = $connect->fetchAll('select * from items order by `views` DESC limit 5');
-        if($subjectId == 'items'){
+        if($subjectId == 'Items'){
          /* $itemsRepository = $this->getDoctrine()
                     ->getManager()
                     ->getRepository('AppBundle:Articles');
@@ -60,7 +60,7 @@ class DefaultController extends Controller
               'menu'=>$menu['result'],
               'items'=>$items['result'],
          ];
-        }else if($subjectId =='articles'){
+        }else if($subjectId =='Articles'){
             $connect = $this->get('database_connection');
             $articles['result'] = $connect->fetchAll('select * from articles limit 12');
             $rezult = $connect->fetchAll("select * From articles ");
