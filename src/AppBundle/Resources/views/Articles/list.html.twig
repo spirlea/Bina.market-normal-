@@ -71,6 +71,7 @@
              </a>    
         <div class="meniu">
           <ul>
+              <li> {% include 'AppBundle:partials:search.form.html.twig' %}</li>
           {% for Menu in data.menu %}    
             <li><a href="{{path('home',{subjectId:Menu.denMenu}) }}">{{Menu.denMenu}}</a></li>
           {% endfor %}
@@ -84,7 +85,7 @@
             <aside class="left-block">
                 <div class="square-block">
                     <div class="inner">
-                        {% include 'AppBundle:partials:search.form.html.twig' %}
+                       
                         <h4>Categories</h4>
                         <ul class="list-unstyled leftmenu">
                             <li><a href="{{ path('home') }}">All</a></li>
