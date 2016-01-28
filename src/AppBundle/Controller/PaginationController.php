@@ -21,6 +21,7 @@ class PaginationController extends Controller{
         $menu['result'] = $menuRepository->showAction();
         
         $connect = $this->get('database_connection');
+        $search1['result'] = $connect->fetchAll("select DISTINCT Nm From companies");
         $popular['result'] = $connect->fetchAll('select * from companies order by `views` DESC limit 5');
         $popular['items'] = $connect->fetchAll('select * from items order by `views` DESC limit 5');
          $nn = $i;
@@ -42,6 +43,7 @@ class PaginationController extends Controller{
             }else{
             $company['rezult']= $connect->fetchAll('select * from '.$name.' Order By `Nm` '.$ts.'  LIMIT 12 OFFSET '.$m);}
                 $data = [
+                      'search1'=>$search1['result'],
                    'name'=>$name,
                    'menu'=>$menu['result'],
                    'tip'=>$tip,
@@ -59,6 +61,7 @@ class PaginationController extends Controller{
                   }else{
                    $company['rezult']= $connect->fetchAll('select * from '.$name.' Order By `Nm` '.$ts.'  LIMIT 12 OFFSET '.$m);}
                 $data = [
+                      'search1'=>$search1['result'],
                    'name'=>$name,
                    'menu'=>$menu['result'],
                    'tip'=>$tip,
@@ -75,6 +78,7 @@ class PaginationController extends Controller{
                   }else{
                    $company['rezult']= $connect->fetchAll('select * from '.$name.' Order By `title` '.$ts.'  LIMIT 12 OFFSET '.$m);}
                $data = [
+                     'search1'=>$search1['result'],
                    'name'=>$name,
                    'menu'=>$menu['result'],
                    'tip'=>$tip,
@@ -94,6 +98,7 @@ class PaginationController extends Controller{
             $company['rezult']= $connect->fetchAll('select * from '.$name.' Order By `SalePrice` '.$ts.'  LIMIT 12 OFFSET '.$m);}
              if($name == 'items'){
                 $data = [
+                      'search1'=>$search1['result'],
                    'name'=>$name,
                    'menu'=>$menu['result'],
                    'tip'=>$tip,

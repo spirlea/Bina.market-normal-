@@ -34,6 +34,7 @@ class DefaultController extends Controller
                 ->getRepository('AppBundle:Companies');*/
         $menu['result'] = $menuRepository->showAction();
         $connect = $this->get('database_connection');
+        $search1['result'] = $connect->fetchAll("select DISTINCT Nm From companies");
         $popular['result'] = $connect->fetchAll('select * from companies order by `views` DESC limit 5');
         $popular['items'] = $connect->fetchAll('select * from items order by `views` DESC limit 5');
         if($subjectId == 'Items'){
@@ -93,6 +94,7 @@ class DefaultController extends Controller
         }
         $rez= $count/12;
           $data= [
+                'search1'=>$search1['result'],
               'tip'=>'names',
               'ts'=>null,
               'a' =>1,

@@ -15,6 +15,7 @@
      <link href="{{ asset('css/style.css')}}" rel="stylesheet">
      <link href="{{ asset('css/nanoscroller.css')}}" rel="stylesheet">
      <link href="{{ asset('css/mainstyle.css')}}" rel="stylesheet">
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     {% endblock stylesheets %}    
      
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -25,6 +26,9 @@
     <script src="{{ asset('js/search.js') }}"></script>
     <script src="{{ asset('js/jquery-1.4.2.min.js') }}"></script>
     <script src="{{ asset('js/jquery-ui-1.8.2.custom.min.js') }}"></script>
+  
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
     {% block externaljs %}{% endblock %}
     <script>
@@ -40,9 +44,11 @@
             'article': "path('show_client_article', {'articleId': '111'})|replace({ '111': ''}) }}"
         };
     </script>-->
-
+ 
 </head>
-<body>
+<body>     {% if data.search1 is defined %}
+              {% include 'AppBundle:partials:scriptsearch.html.twig' with [{'search1': data.search1}] %}
+           {% endif %}
     <div class="container">
     <nav class="navbar navbar-default  hidden-lg">
         <div class="container-fluid">

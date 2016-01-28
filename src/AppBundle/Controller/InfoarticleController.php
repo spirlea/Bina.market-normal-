@@ -15,6 +15,7 @@ class InfoarticleController extends Controller{
      */
     function indexAction($i){
         $connect = $this->get('database_connection');
+        $search1['result'] = $connect->fetchAll("select DISTINCT Nm From companies");
         $info['infos'] = $connect->fetchAll("SELECT * FROM articles where Company_id=".$i);
         $popular['result'] = $connect->fetchAll('select * from articles order by `views` DESC limit 5');
         $menuRepository = $this->getDoctrine()
@@ -22,6 +23,7 @@ class InfoarticleController extends Controller{
                 ->getRepository('AppBundle:Menu');
             $menu['result'] = $menuRepository->showAction();
         $data = [
+              'search1'=>$search1['result'],
             'menu'=>$menu['result'],
             'info'=>$info['infos'],
             'popular'=>$popular['result'],
@@ -36,6 +38,7 @@ class InfoarticleController extends Controller{
     
     function infoAction($id){
         $connect = $this->get('database_connection');
+        $search1['result'] = $connect->fetchAll("select DISTINCT Nm From companies");
         $connect->executeUpdate('UPDATE `items` SET `views`=`views`+1 WHERE C='.$id);
         $information['rezult'] = $connect->fetchAll('select * from items where C='.$id);
         $popular['items'] = $connect->fetchAll('select * from items order by `views` DESC limit 5');
@@ -45,6 +48,7 @@ class InfoarticleController extends Controller{
                 ->getRepository('AppBundle:Menu');
           $menu['result'] = $menuRepository->showAction();
         $data = [
+              'search1'=>$search1['result'],
           'menu' => $menu['result'],
           'info' => $information['rezult'],
           'popularitem'=>$popular['items'],
